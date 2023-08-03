@@ -1,0 +1,59 @@
+.wrapper .wrapper-child {
+  height: 34.85px;
+  /*Need to fix overflow hidden problem...*/
+  /*Placing overflow hidden in wrapper-child li permanently hides bottom 2 lines.*/
+  /*Placing overflow hidden in wrapper-child li span does nothing.*/
+  overflow: hidden;
+}
+
+.wrapper-child {
+  float: left;
+}
+
+.wrapper-child li {
+  list-style: none;
+  /*Need to fix typing animation: Cursor no longer relative to text in list.*/
+  /*Cursor extends too far beyond word or stops short of end of word...*/
+  /*Issue probably 'position' attribute...*/
+  /*Should it be relative? In which rule should it be located?*/
+  /*Focus on li span b/c cursor works best there...*/
+  /*Need to fix scrolling animation:*/
+  /*Scrolling not in sync with cursor... there may be no fix for this.*/
+  animation: hw-scroll 3.75s steps(3) infinite;
+}
+
+.wrapper-child li span {
+  position: relative;
+  top: 0;
+  animation: hw-scroll 3.75s steps(3) infinite;
+}
+
+.wrapper-child li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: white;
+  border-left: 2px solid;
+  animation: typing 1.25s steps(16) infinite;
+}
+
+.wrapper-child ul {
+  padding-left: 0px;
+  overflow: hidden;
+}
+
+/*Animations*/
+
+@keyframes typing {
+  100% {
+    left: 105%;
+  }
+}
+
+@keyframes hw-scroll {
+  100% {
+    top: -56.5px;
+  }
+}
