@@ -1,59 +1,59 @@
-.wrapper .wrapper-child {
-  height: 34.85px;
-  /*Need to fix overflow hidden problem...*/
-  /*Placing overflow hidden in wrapper-child li permanently hides bottom 2 lines.*/
-  /*Placing overflow hidden in wrapper-child li span does nothing.*/
-  overflow: hidden;
+.wrapper {
+  height: 2.2em;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+
 }
 
-.wrapper-child {
+.column {
   float: left;
+  /*prevents effect from showing text below main line and covering ") as effect shifts right... putting this in .wrapper alone only covers text from below.*/
+  overflow: hidden;
+
 }
 
-.wrapper-child li {
-  list-style: none;
-  /*Need to fix typing animation: Cursor no longer relative to text in list.*/
-  /*Cursor extends too far beyond word or stops short of end of word...*/
-  /*Issue probably 'position' attribute...*/
-  /*Should it be relative? In which rule should it be located?*/
-  /*Focus on li span b/c cursor works best there...*/
-  /*Need to fix scrolling animation:*/
-  /*Scrolling not in sync with cursor... there may be no fix for this.*/
-  animation: hw-scroll 3.75s steps(3) infinite;
-}
-
-.wrapper-child li span {
+.dynamic-hw-text {
+  list-style-type: none;
+  padding: 0px;
   position: relative;
   top: 0;
-  animation: hw-scroll 3.75s steps(3) infinite;
+  animation: hw-text-scroll-up 4.5s steps(3) infinite;
 }
 
-.wrapper-child li span::after {
+
+.dynamic-hw-text li span::after {
   content: "";
   position: absolute;
   left: 0;
   height: 100%;
   width: 100%;
-  background: white;
   border-left: 2px solid;
-  animation: typing 1.25s steps(16) infinite;
+  background-color: white;
+  animation: typing 1.5s steps(16) infinite;
 }
 
-.wrapper-child ul {
-  padding-left: 0px;
-  overflow: hidden;
+.dynamic-hw-text li span {
+  position: relative;
 }
 
 /*Animations*/
 
 @keyframes typing {
-  100% {
-    left: 105%;
+
+  50%,
+  60% {
+    left: 100%;
   }
+
+  100% {
+    left: 0;
+  }
+
 }
 
-@keyframes hw-scroll {
+@keyframes hw-text-scroll-up {
   100% {
-    top: -56.5px;
+    top: -3.5em;
   }
 }
