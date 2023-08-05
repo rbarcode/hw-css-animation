@@ -1,8 +1,16 @@
 .wrapper {
-  height: 2.2em;
+  /*This should be 1.2em... but the elements don't appear in right place*/
+  height: 1.2em;
+  /* height: 90px; */
+  /*Line height ensures the row that scrolls up aligns with the rest of the text*/
+  line-height: 1.2;
+  /* line-height: 15px; */
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
+  /*Border to troubleshoot overflow:hidden issues*/
+  /* border: 1px solid; */
+  /* box-sizing: border-box; */
+
 
 }
 
@@ -10,23 +18,31 @@
   float: left;
   /*prevents effect from showing text below main line and covering ") as effect shifts right... putting this in .wrapper alone only covers text from below.*/
   overflow: hidden;
+}
 
+.marginless {
+  margin: 0;
 }
 
 .dynamic-hw-text {
   list-style-type: none;
   padding: 0px;
   position: relative;
-  top: 0;
+  /*Corrects the HW text from starting in middle of column at top: 0;*/
+  top: -83%;
+  height: 100%;
+  line-height: 1.2;
+  /*Red background to help troubleshoot line height and element height issues:*/
+  /* background: red; */
   animation: hw-text-scroll-up 4.5s steps(3) infinite;
 }
-
 
 .dynamic-hw-text li span::after {
   content: "";
   position: absolute;
   left: 0;
-  height: 100%;
+  /*This height (somehow) helps the cursor to slide back and forth*/
+  height: 104%;
   width: 100%;
   border-left: 2px solid;
   background-color: white;
@@ -34,8 +50,10 @@
 }
 
 .dynamic-hw-text li span {
+  /*Position:relative ensures the cursor is unique to each line*/
   position: relative;
 }
+
 
 /*Animations*/
 
@@ -54,6 +72,7 @@
 
 @keyframes hw-text-scroll-up {
   100% {
-    top: -3.5em;
+    top: -4.55em;
+    /* top: -45px; or also top: -3.6em;*/
   }
 }
