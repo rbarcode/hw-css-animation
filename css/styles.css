@@ -4,9 +4,6 @@
   line-height: 1.2;
   display: flex;
   justify-content: center;
-
-
-
 }
 
 .column {
@@ -27,6 +24,7 @@
   top: -83%;
   height: 100%;
   line-height: 1.2;
+  z-index: -1;
   animation: hw-text-scroll-up 4.5s steps(3) infinite;
 }
 
@@ -48,6 +46,13 @@
   position: relative;
 }
 
+.closing-par {
+  position: absolute;
+  z-index: 1;
+  animation: 0.75s linear infinite paren-slide;
+
+}
+
 
 /*Animations*/
 
@@ -67,5 +72,15 @@
 @keyframes hw-text-scroll-up {
   100% {
     top: -4.58em;
+  }
+}
+
+@keyframes paren-slide {
+  from {
+    transform: translateX(-900%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
