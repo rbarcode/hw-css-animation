@@ -1,15 +1,10 @@
 .wrapper {
-  /*This should be 1.2em... but the elements don't appear in right place*/
   height: 1.2em;
-  /* height: 90px; */
   /*Line height ensures the row that scrolls up aligns with the rest of the text*/
   line-height: 1.2;
-  /* line-height: 15px; */
   display: flex;
   justify-content: center;
-  /*Border to troubleshoot overflow:hidden issues*/
-  /* border: 1px solid; */
-  /* box-sizing: border-box; */
+
 
 
 }
@@ -32,16 +27,15 @@
   top: -83%;
   height: 100%;
   line-height: 1.2;
-  /*Red background to help troubleshoot line height and element height issues:*/
-  /* background: red; */
   animation: hw-text-scroll-up 4.5s steps(3) infinite;
 }
 
 .dynamic-hw-text li span::after {
+  /*Content must contain empty quotes*/
   content: "";
   position: absolute;
   left: 0;
-  /*This height (somehow) helps the cursor to slide back and forth*/
+  /*This height is >100 to hide tail of "j" in animation*/
   height: 104%;
   width: 100%;
   border-left: 2px solid;
@@ -72,7 +66,6 @@
 
 @keyframes hw-text-scroll-up {
   100% {
-    top: -4.55em;
-    /* top: -45px; or also top: -3.6em;*/
+    top: -4.58em;
   }
 }
