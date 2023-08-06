@@ -1,4 +1,12 @@
+body {
+  color: white;
+  font-size: xxx-large;
+  background-color: black;
+}
+
+
 .wrapper {
+  margin-top: 50%;
   height: 1.2em;
   /*Line height ensures the row that scrolls up aligns with the rest of the text*/
   line-height: 1.2;
@@ -37,7 +45,7 @@
   height: 104%;
   width: 100%;
   border-left: 2px solid;
-  background-color: white;
+  background-color: black;
   animation: typing 1.5s steps(16) infinite;
 }
 
