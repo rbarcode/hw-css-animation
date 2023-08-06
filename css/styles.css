@@ -6,7 +6,7 @@ body {
 
 
 .wrapper {
-  margin-top: 50%;
+  margin-top: 45vh;
   height: 1.2em;
   /*Line height ensures the row that scrolls up aligns with the rest of the text*/
   line-height: 1.2;
