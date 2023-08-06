@@ -49,7 +49,8 @@
 .closing-par {
   position: absolute;
   z-index: 1;
-  animation: 0.75s linear infinite paren-slide;
+  /*0.75s needed for one slide from no text to full pozdrav svijete!*/
+  animation: 4.5s ease-in infinite paren-slide;
 
 }
 
@@ -76,11 +77,62 @@
 }
 
 @keyframes paren-slide {
-  from {
-    transform: translateX(-900%);
+
+  /*Basic math is 100/6, then some modifications to get timing right. Added delays at the midpoint of each cycle.*/
+  /*EN*/
+  0% {
+    /*-900% is starting offset beside opening parenthesis.*/
+    transform: translateX(-880%);
+    animation-timing-function: steps(13);
   }
 
-  to {
+  16% {
+    transform: translateX(-118%);
+  }
+
+  20.25% {
+    transform: translateX(-118%);
+    animation-timing-function: steps(9), ease-out;
+  }
+
+  /*Extra waypoint to try to slow down animation which seems to speed up on end of EN cycle*/
+  28% {
+    transform: translateX(-575%);
+    animation-timing-function: steps(4), ease-in-out;
+  }
+
+
+  /*DE*/
+  32% {
+    transform: translateX(-880%);
+    animation-timing-function: steps(12);
+  }
+
+  49.98% {
+    transform: translateX(-230%);
+  }
+
+  53% {
+    transform: translateX(-230%);
+    animation-timing-function: steps(12);
+  }
+
+  /*HR*/
+  66.64% {
+    transform: translateX(-880%);
+    animation-timing-function: steps(16), ease-out;
+  }
+
+  83.3% {
     transform: translateX(0);
+  }
+
+  87% {
+    transform: translateX(0);
+    animation-timing-function: steps(16);
+  }
+
+  100% {
+    transform: translateX(-880%);
   }
 }
